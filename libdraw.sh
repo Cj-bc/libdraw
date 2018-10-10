@@ -25,8 +25,21 @@ Draw::drawAt() {
 }
 
 # Erase whole area <x1> <y1> to <x2> <y>
-# @param <int x> <int y> <int x2> <int y2>
+# @param <int x> <int y> <int width> <int height>
 Draw::erase() {
+  local -i pos_x
+  local -i pos_y
+  local -i width
+  local -i height
+  pos_x=$1
+  pos_y=$2
+  width=$3
+  height=$4
+
+  tput cup $pos_y $pos_x
+  for i in $(seq 0 $height); do
+    seq -s ' ' $width | tr -d "[:digit:]" # echo ' ' for $width length
+  done
 }
 
 # clear whole screen
