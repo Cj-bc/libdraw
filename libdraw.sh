@@ -17,7 +17,7 @@ Draw::drawAt() {
 
   while IFS= read -r line; do
     echo -n "$line"
-    tput cup $(( $pos_y + i)) $pos_x
+    tput cup $(( $pos_y + $i)) $pos_x
     i+=1
   done < $file
 
