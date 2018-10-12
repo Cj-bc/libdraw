@@ -55,7 +55,7 @@ Draw::erasePicture(){
   local -i i=1
 
   while IFS= read -r line; do
-    seq -s ' ' $(echo -n "$line" | wc-m) | tr -d "[:digit:]"
+    seq -s ' ' $(echo -En "$line" | wc-m) | tr -d "[:digit:]"
     tput cup $(( $pos_y + $i)) $pos_x
     i+=1
   done < $file
