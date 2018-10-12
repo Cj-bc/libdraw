@@ -2,7 +2,7 @@
 #
 # copyright (c) 2018 Cj-bc
 #
-# @(#) ver.0.2.2
+# @(#) ver.0.2.3
 
 
 # draw <picture> at <x>, <y>
