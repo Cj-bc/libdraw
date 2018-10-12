@@ -54,14 +54,11 @@ Draw::erasePicture(){
   tput cup $pos_y $pos_x
   local -i i=1
 
-  vi "+%s/^/|/g" "+w libdraw_erasePicture.tmp" "+q!" $file
-  while read -r line; do
-    word_count=$(($(echo -E "$line" | wc -m) -1))
-    seq -s ' ' $word_count | tr -d "[:digit:]"
+  while IFS= read -r line; do
+    seq -s ' ' $(echo -n "$line" | wc-m) | tr -d "[:digit:]"
     tput cup $(( $pos_y + $i)) $pos_x
     i+=1
-  done < libdraw_erasePicture.tmp
-  rm libdraw_erasePicture.tmp
+  done < $file
 
   tput cnorm
 }
